@@ -59,11 +59,16 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "stterm", "-f", stfont, "-e", "tmux" };
 static const char *browsercmd[] = { "firefox", NULL };
 static const char *editorcmd[] = {"emacsclient", "-c", "--alternate-editor="};
+static const char *filemgrcmd[] = {"stterm", "-f", stfont, "-e", "ranger"};
+
+static const char *messengercmd[] = {"telegram", NULL };
 static Key keys[] = {
   /* modifier                     key        function        argument */
   { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
   { MODKEY,                       XK_r,      spawn,          {.v = editorcmd} },
   { MODKEY,                       XK_s,      spawn,          {.v = browsercmd } },
+  { MODKEY,                       XK_z,      spawn,          {.v = messengercmd } },
+  { MODKEY,                       XK_o,      spawn,          {.v = filemgrcmd } },
   { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
   { MODKEY,                       XK_b,      togglebar,      {0} },
   { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
